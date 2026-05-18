@@ -1,0 +1,48 @@
+---
+const waText = encodeURIComponent('Hola Harvi Agro, quiero saber más sobre la plataforma.');
+const waHref = `https://wa.me/5493492635571?text=${waText}`;
+---
+
+<section id="empezar" class="scroll-mt-[72px] py-20 md:py-28 bg-[#f7f7f7] relative overflow-hidden">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-16 left-1/3 w-[420px] h-[420px] rounded-full blur-3xl opacity-30 animate-float-slow"
+         style="background: var(--harvi-sphere-lime-soft);"></div>
+    <div class="absolute -bottom-24 -right-16 w-[460px] h-[460px] rounded-full blur-3xl opacity-25 animate-float-medium"
+         style="background: var(--harvi-sphere-celeste-soft);"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-4xl px-4 text-center">
+    <span class="inline-block rounded-full bg-white border border-[#cbdf4a]/60 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#103d20] shadow-sm">
+      Empezar es gratis
+    </span>
+    <h2 class="mt-6 text-4xl md:text-6xl font-extrabold text-balance leading-[1.05] text-[#203143]">
+      Tu próximo trabajo,<br />analizado en minutos.
+    </h2>
+    <p class="mt-6 text-lg md:text-xl leading-relaxed text-balance text-[#203143]/80">
+      Probalo sin tarjeta de crédito. Subí un trabajo y ves los resultados de inmediato.
+      Si tenés dudas, escribinos por WhatsApp.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="https://apertio.harviagro.digital"
+        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
+      >
+        Empezar gratis
+        <span aria-hidden="true">→</span>
+      </a>
+      <a
+        href={waHref}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 ease-out"
+      >
+        Consultarnos por WhatsApp
+      </a>
+    </div>
+
+    <p class="mt-6 text-sm font-medium text-[#203143]/70">
+      Sin instalación · Funciona en el celular · Soporte en español
+    </p>
+  </div>
+</section>

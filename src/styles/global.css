@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Tokens de marca — Harvi Digital / Harvi Agro */
+@theme {
+  --color-harvi-dark: #203143;
+  --color-harvi-green-dark: #103d20;
+  --color-harvi-green-lime: #cbdf4a;
+  --color-harvi-blue-light: #c5daf3;
+  --color-harvi-grey: #f7f7f7;
+
+  --font-sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Public Sans", system-ui, sans-serif;
+}
+
+:root {
+  --harvi-dark: #203143;
+  --harvi-green-dark: #103d20;
+  --harvi-green-lime: #cbdf4a;
+  --harvi-blue-light: #c5daf3;
+  --harvi-grey: #f7f7f7;
+
+  --harvi-sphere-lime-soft: color-mix(in srgb, #cbdf4a 28%, white);
+  --harvi-sphere-celeste-soft: color-mix(in srgb, #c5daf3 32%, white);
+  --harvi-sphere-green-soft: color-mix(in srgb, #103d20 20%, white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--harvi-dark);
+  background: #ffffff;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Atmósfera hero — esferas flotantes */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(20px, -30px) scale(1.05); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, 25px) scale(1.08); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(15px, 20px); }
+}
+@keyframes float-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-25px, -15px); }
+}
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+
+.animate-float-slow   { animation: float-slow 14s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 10s ease-in-out infinite; }
+.animate-float-fast   { animation: float-fast 8s ease-in-out infinite; }
+.animate-float-drift  { animation: float-drift 18s ease-in-out infinite; }
+.animate-scroll-hint  { animation: scroll-hint 3.2s ease-in-out infinite; }
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}

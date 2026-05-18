@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+const links = [
+  { href: 'https://harvi.digital', label: 'Harvi Digital', external: true },
+  { href: 'https://harvestech.dev', label: 'Harvestech', external: true },
+  { href: 'https://apertio.com.ar', label: 'Apertio', external: true },
+  { href: '/terminos', label: 'Términos', external: false },
+  { href: '/privacidad', label: 'Privacidad', external: false },
+];
+---
+
+<footer class="bg-[#103d20] border-t border-[#0a2815] text-[#c5daf3] text-sm">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr]">
+    <div>
+      <p class="text-2xl font-extrabold text-white">Harvi Agro</p>
+      <p class="mt-2 text-[#c5daf3]/85">
+        Desarrollado por <span class="font-semibold text-white">Harvestech</span> · San Vicente, Santa Fe
+      </p>
+      <p class="mt-4 max-w-md text-[#c5daf3]/75">
+        Harvi Agro es una marca comercial de Harvestech, parte del ecosistema Harvi Digital.
+      </p>
+    </div>
+
+    <nav aria-label="Enlaces de pie de página">
+      <p class="text-xs font-bold uppercase tracking-wider text-[#cbdf4a]">Ecosistema</p>
+      <ul class="mt-4 space-y-2">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              target={l.external ? '_blank' : undefined}
+              rel={l.external ? 'noopener' : undefined}
+              class="text-[#c5daf3] hover:text-white hover:decoration-[#cbdf4a] hover:underline decoration-2 underline-offset-4 transition-colors duration-300 ease-out"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-[#0a2815]">
+    <div class="mx-auto max-w-6xl px-4 py-5 text-xs text-[#c5daf3]/75 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <p>© {year} Harvi Agro · Todos los derechos reservados</p>
+      <p>harviagro.digital</p>
+    </div>
+  </div>
+</footer>

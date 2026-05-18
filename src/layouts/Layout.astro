@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Harvi Agro — Herramientas digitales para el campo',
+  description = 'Analizá tus trabajos de campo: dosis aplicada, solapamientos, velocidad y cumplimiento de prescripción. Sin software de escritorio. Compatible con Apertio, Topcon, AgLeader y más.',
+} = Astro.props;
+
+const canonical = 'https://harviagro.digital';
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap"
+    />
+
+    <meta property="og:title" content="Harvi Agro — Analizá cada trabajo de campo" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/og-harviagro.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen antialiased text-[#203143]">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,74 @@
+---
+const benefits = [
+  {
+    title: 'Archivos compatibles de fábrica',
+    body: 'Los KML y Shapefiles que genera la pantalla Apertio son reconocidos automáticamente. Sin configuración.',
+  },
+  {
+    title: 'Acceso incluido con tu equipo',
+    body: 'Los clientes de Apertio acceden a la plataforma sin costo adicional durante los primeros meses.',
+  },
+  {
+    title: 'Próximamente: subida automática',
+    body: 'Cuando la pantalla se conecte a WiFi, sube el trabajo directamente a tu cuenta. Sin exportar archivos.',
+  },
+];
+---
+
+<section id="apertio" class="scroll-mt-[72px] py-20 md:py-28 bg-[#103d20] text-white relative overflow-hidden">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-0 opacity-20">
+    <div class="absolute -top-20 right-1/4 w-[420px] h-[420px] rounded-full blur-3xl animate-float-medium"
+         style="background: var(--harvi-green-lime);"></div>
+    <div class="absolute bottom-0 -left-20 w-[360px] h-[360px] rounded-full blur-3xl animate-float-slow"
+         style="background: var(--harvi-blue-light);"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4">
+    <span class="text-sm font-bold uppercase tracking-wider text-[#cbdf4a]">
+      Integración con hardware
+    </span>
+    <h2 class="mt-3 text-4xl md:text-5xl font-bold text-balance text-white">
+      Si usás equipos Apertio,<br />ya está integrado.
+    </h2>
+    <p class="mt-6 max-w-3xl text-lg leading-relaxed text-balance text-[#c5daf3]">
+      Apertio fabrica sistemas de control de fertilización y mapeadores para maquinaria agrícola.
+      Sus equipos generan los archivos que Harvi Agro analiza.
+      Una combinación hecha para el campo argentino.
+    </p>
+
+    <a
+      href="https://apertio.com.ar"
+      target="_blank"
+      rel="noopener"
+      class="mt-6 inline-flex items-center gap-2 text-[#cbdf4a] font-bold decoration-[#cbdf4a] decoration-2 underline-offset-4 hover:underline"
+    >
+      Conocé los equipos Apertio
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <ul class="mt-14 grid md:grid-cols-3 gap-6">
+      {benefits.map((b) => (
+        <li class="rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-6 shadow-md">
+          <div class="h-10 w-10 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center font-extrabold shadow-md ring-4 ring-[#103d20]">
+            ✓
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-white">{b.title}</h3>
+          <p class="mt-2 text-[#c5daf3] leading-relaxed">{b.body}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-14 rounded-2xl bg-[#cbdf4a] text-[#203143] p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-xl">
+      <p class="text-lg md:text-xl font-bold text-balance">
+        ¿Tenés equipos Apertio? Activá tu acceso gratis.
+      </p>
+      <a
+        href="https://apertio.harviagro.digital"
+        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#203143] text-[#cbdf4a] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
+      >
+        Acceder
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

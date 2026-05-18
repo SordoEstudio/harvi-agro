@@ -1,0 +1,111 @@
+---
+const badges = [
+  'KML, Shapefile y GeoJSON',
+  'Informe PDF en un click',
+  'Sin instalación',
+];
+---
+
+<section
+  id="hero"
+  class="relative isolate overflow-hidden pt-[112px] md:pt-[128px] pb-20 md:pb-28"
+  style="background: linear-gradient(180deg, #f7f7f7 0%, #fafafa 50%, #f3f3f3 100%);"
+>
+  <!-- esferas atmósfera -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-24 -left-16 w-[420px] h-[420px] rounded-full blur-3xl opacity-25 animate-float-slow"
+         style="background: var(--harvi-sphere-lime-soft);"></div>
+    <div class="absolute top-1/3 -right-24 w-[480px] h-[480px] rounded-full blur-3xl opacity-30 animate-float-medium"
+         style="background: var(--harvi-sphere-celeste-soft);"></div>
+    <div class="absolute bottom-0 left-1/4 w-[360px] h-[360px] rounded-full blur-3xl opacity-20 animate-float-drift"
+         style="background: var(--harvi-sphere-green-soft);"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 grid lg:grid-cols-[1.05fr_1fr] gap-12 items-center">
+    <!-- copy -->
+    <div>
+      <span class="inline-block rounded-full bg-white/70 border border-[#cbdf4a]/50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#203143] shadow-sm">
+        Herramientas digitales para el agro
+      </span>
+
+      <h1
+        class="mt-6 font-extrabold text-balance leading-[1.08] text-[#203143]"
+        style="font-size: clamp(2rem, 5.5vw, 3.6rem);"
+      >
+        Sabé exactamente<br />
+        cómo se trabajó<br />
+        <span class="relative inline-block">
+          cada lote.
+          <span class="absolute left-0 -bottom-1 h-2 w-full bg-[#cbdf4a]/60 -z-10 rounded"></span>
+        </span>
+      </h1>
+
+      <p class="mt-6 text-lg md:text-xl leading-relaxed text-balance text-[#203143]/85 max-w-xl">
+        Harvi Agro convierte los archivos de tus máquinas en análisis claros:
+        dosis aplicada, solapamientos, velocidad y cumplimiento de la prescripción.
+        Sin software de escritorio, sin saber de GIS.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a
+          href="https://apertio.harviagro.digital"
+          class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
+        >
+          Subir mi primer trabajo
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="#producto"
+          class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f7f7f7] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 ease-out"
+        >
+          Ver cómo funciona
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+        {badges.map((b) => (
+          <li class="flex items-center gap-2 text-sm font-medium text-[#203143]/80">
+            <span
+              class="flex h-5 w-5 items-center justify-center rounded-full bg-[#cbdf4a] text-[#203143] text-xs font-bold"
+              aria-hidden="true"
+            >✓</span>
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- visual -->
+    <div class="relative">
+      <div class="glass-light rounded-3xl p-3 shadow-xl">
+        <img
+          src="/images/hero.png"
+          alt="Análisis de un trabajo de campo con Harvi Agro"
+          class="w-full h-auto rounded-2xl"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      <div class="absolute -bottom-4 -right-4 hidden md:flex items-center gap-3 bg-white rounded-2xl shadow-lg border border-[#cbdf4a] px-4 py-3">
+        <div class="h-10 w-10 rounded-full bg-[#cbdf4a] flex items-center justify-center text-[#203143] font-extrabold shadow-md ring-4 ring-white">
+          ✓
+        </div>
+        <div class="text-sm">
+          <p class="font-bold text-[#203143]">Análisis listo</p>
+          <p class="text-[#203143]/70 text-xs">en minutos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#problema"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 text-[#203143]/60 animate-scroll-hint"
+    aria-label="Bajar a la siguiente sección"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  </a>
+</section>
