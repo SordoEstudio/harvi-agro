@@ -1,9 +1,9 @@
 ---
-const badges = [
-  'KML, Shapefile y GeoJSON',
-  'Informe PDF en un click',
-  'Sin instalación',
-];
+import data from '../content/hero.json';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../components/LucideIcon';
+
+const waHref = `https://wa.me/${data.ctas.secondary.whatsappPhone}?text=${encodeURIComponent(data.ctas.secondary.whatsappText)}`;
 ---
 
 <section
@@ -25,51 +25,58 @@ const badges = [
     <!-- copy -->
     <div>
       <span class="inline-block rounded-full bg-white/70 border border-[#cbdf4a]/50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#203143] shadow-sm">
-        Herramientas digitales para el agro
+        {data.eyebrow}
       </span>
 
       <h1
         class="mt-6 font-extrabold text-balance leading-[1.08] text-[#203143]"
         style="font-size: clamp(2rem, 5.5vw, 3.6rem);"
       >
-        Sabé exactamente<br />
-        cómo se trabajó<br />
-        <span class="relative inline-block">
-          cada lote.
-          <span class="absolute left-0 -bottom-1 h-2 w-full bg-[#cbdf4a]/60 -z-10 rounded"></span>
-        </span>
+        {data.title.lines.map((line, i) => (
+          <>
+            {line}{i < data.title.lines.length - 1 || data.title.highlight ? <br /> : null}
+          </>
+        ))}
+        {data.title.highlight && (
+          <span class="relative inline-block">
+            {data.title.highlight}
+            <span class="absolute left-0 -bottom-1 h-2 w-full bg-[#cbdf4a]/60 -z-10 rounded"></span>
+          </span>
+        )}
       </h1>
 
       <p class="mt-6 text-lg md:text-xl leading-relaxed text-balance text-[#203143]/85 max-w-xl">
-        Harvi Agro convierte los archivos de tus máquinas en análisis claros:
-        dosis aplicada, solapamientos, velocidad y cumplimiento de la prescripción.
-        Sin software de escritorio, sin saber de GIS.
+        {data.subtitle}
       </p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
         <a
-          href="https://apertio.harviagro.digital"
+          href={data.ctas.primary.href}
           class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
         >
-          Subir mi primer trabajo
-          <span aria-hidden="true">→</span>
+          {data.ctas.primary.label}
+          <Icon name="arrow-right" size={18} class="shrink-0" />
         </a>
         <a
-          href="#producto"
+          href={waHref}
+          target="_blank"
+          rel="noopener"
           class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f7f7f7] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 ease-out"
         >
-          Ver cómo funciona
-          <span aria-hidden="true">→</span>
+          {data.ctas.secondary.label}
+          <Icon name="arrow-right" size={18} class="shrink-0" />
         </a>
       </div>
 
       <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-        {badges.map((b) => (
+        {data.badges.map((b) => (
           <li class="flex items-center gap-2 text-sm font-medium text-[#203143]/80">
             <span
-              class="flex h-5 w-5 items-center justify-center rounded-full bg-[#cbdf4a] text-[#203143] text-xs font-bold"
+              class="flex h-5 w-5 items-center justify-center rounded-full bg-[#cbdf4a] text-[#203143]"
               aria-hidden="true"
-            >✓</span>
+            >
+              <Icon name="check" size={12} strokeWidth={3} />
+            </span>
             {b}
           </li>
         ))}
@@ -80,32 +87,36 @@ const badges = [
     <div class="relative">
       <div class="glass-light rounded-3xl p-3 shadow-xl">
         <img
-          src="/images/hero.png"
-          alt="Análisis de un trabajo de campo con Harvi Agro"
+          src={data.image.src}
+          alt={data.image.alt}
           class="w-full h-auto rounded-2xl"
           loading="eager"
           decoding="async"
         />
       </div>
-      <div class="absolute -bottom-4 -right-4 hidden md:flex items-center gap-3 bg-white rounded-2xl shadow-lg border border-[#cbdf4a] px-4 py-3">
-        <div class="h-10 w-10 rounded-full bg-[#cbdf4a] flex items-center justify-center text-[#203143] font-extrabold shadow-md ring-4 ring-white">
-          ✓
-        </div>
-        <div class="text-sm">
-          <p class="font-bold text-[#203143]">Análisis listo</p>
-          <p class="text-[#203143]/70 text-xs">en minutos</p>
-        </div>
+      <div
+        class="absolute -bottom-4 -right-4 hidden md:flex items-center gap-2 bg-white rounded-2xl shadow-lg border border-[#cbdf4a] px-3 py-3"
+        role="group"
+        aria-label="Agro, mapas y análisis"
+      >
+        {data.imageBadgeIcons.map((item) => (
+          <div
+            class="h-10 w-10 rounded-full bg-[#cbdf4a] flex items-center justify-center text-[#203143] shadow-md ring-4 ring-white"
+            title={item.label}
+          >
+            <Icon name={item.icon as IconName} />
+            <span class="sr-only">{item.label}</span>
+          </div>
+        ))}
       </div>
     </div>
   </div>
 
   <a
-    href="#problema"
+    href={data.scrollTarget}
     class="absolute bottom-6 left-1/2 -translate-x-1/2 text-[#203143]/60 animate-scroll-hint"
     aria-label="Bajar a la siguiente sección"
   >
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
+    <Icon name="chevron-down" size={28} />
   </a>
 </section>

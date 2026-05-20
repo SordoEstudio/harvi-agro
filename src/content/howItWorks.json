@@ -1,0 +1,28 @@
+{
+  "id": "como-funciona",
+  "eyebrow": "El proceso",
+  "title": "Cuatro pasos, cinco minutos.",
+  "subtitle": "No hace falta saber de SIG ni tener un software especial. Si podés subir un archivo, podés analizar un trabajo.",
+  "steps": [
+    {
+      "n": "01",
+      "title": "Subís el archivo",
+      "body": "Exportás el trabajo desde la pantalla de la máquina (KML, Shapefile o GeoJSON) y lo subís a la plataforma."
+    },
+    {
+      "n": "02",
+      "title": "Se procesa automáticamente",
+      "body": "La plataforma detecta los campos (dosis, velocidad, prescripción) y calcula todos los análisis en segundo plano."
+    },
+    {
+      "n": "03",
+      "title": "Analizás los resultados",
+      "body": "Ves el mapa, las estadísticas, los solapamientos y el cumplimiento de la prescripción en una sola pantalla."
+    },
+    {
+      "n": "04",
+      "title": "Generás el informe",
+      "body": "Exportás el PDF técnico y se lo mandás al productor o lo guardás en tu historial de campaña."
+    }
+  ]
+}

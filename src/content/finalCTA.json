@@ -1,0 +1,74 @@
+{
+  "id": "contacto",
+  "eyebrow": "Trabajemos juntos",
+  "title": {
+    "lines": [
+      "¿Tenés un problema",
+      "en el campo que la",
+      "tecnología puede resolver?"
+    ]
+  },
+  "subtitle": "Si hay algo en tu operación que se hace a mano, que se pierde, que no se mide o que lleva más tiempo del que debería, contanos. Desarrollamos la herramienta que necesitás.",
+  "image": {
+    "src": "/images/contacto-mascota.png",
+    "alt": "Mascota Harvi Agro en el campo con datos agrícolas"
+  },
+  "form": {
+    "endpoint": "https://micms.website/api/public/v1/forms/contacto/submit",
+    "submitLabel": "Enviar mensaje",
+    "fields": [
+      {
+        "id": "nombre",
+        "type": "text",
+        "label": "Nombre",
+        "placeholder": "Tu nombre",
+        "required": true,
+        "width": "half"
+      },
+      {
+        "id": "empresa",
+        "type": "text",
+        "label": "Empresa / Campo",
+        "placeholder": "Nombre de tu empresa o campo",
+        "required": false,
+        "width": "half"
+      },
+      {
+        "id": "email",
+        "type": "email",
+        "label": "Email",
+        "placeholder": "tu@email.com",
+        "required": true,
+        "width": "half"
+      },
+      {
+        "id": "telefono",
+        "type": "tel",
+        "label": "Teléfono",
+        "placeholder": "+54 9 ...",
+        "required": false,
+        "width": "half"
+      },
+      {
+        "id": "mensaje",
+        "type": "textarea",
+        "label": "Contanos tu situación",
+        "placeholder": "¿Qué hacés hoy? ¿Qué problema querés resolver? No hace falta que sea técnico, contanos con tus palabras.",
+        "required": true,
+        "width": "full",
+        "rows": 5
+      }
+    ],
+    "messages": {
+      "success": "¡Gracias! Recibimos tu mensaje y te respondemos en menos de 24 horas.",
+      "error": "No pudimos enviar tu mensaje. Probá de nuevo o escribinos por WhatsApp.",
+      "validation": "Revisá los campos obligatorios.",
+      "rateLimit": "Estás enviando demasiados mensajes. Probá en un minuto."
+    }
+  },
+  "whatsapp": {
+    "label": "O escribinos directo por WhatsApp",
+    "phone": "5493492635571",
+    "text": "Hola Harvi Agro, tengo una consulta sobre un proyecto."
+  }
+}

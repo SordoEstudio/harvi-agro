@@ -1,0 +1,37 @@
+{
+  "id": "apertio",
+  "logo": {
+    "src": "/brand/apertio.png",
+    "alt": "Logo Apertio"
+  },
+  "eyebrow": "Integración con hardware",
+  "title": {
+    "lines": [
+      "Si usás equipos Apertio,",
+      "ya está integrado."
+    ]
+  },
+  "subtitle": "Apertio fabrica sistemas de control de fertilización y mapeadores para maquinaria agrícola. Sus equipos generan los archivos que Harvi Agro analiza. Una combinación hecha para el campo argentino.",
+  "link": {
+    "label": "Conocé los equipos Apertio",
+    "href": "https://apertio.com.ar"
+  },
+  "benefits": [
+    {
+      "title": "Archivos compatibles de fábrica",
+      "body": "Los KML y Shapefiles que genera la pantalla Apertio son reconocidos automáticamente. Sin configuración."
+    },
+    {
+      "title": "Acceso incluido con tu equipo",
+      "body": "Los clientes de Apertio acceden a la plataforma sin costo adicional durante los primeros meses."
+    },
+    {
+      "title": "Próximamente: subida automática",
+      "body": "Cuando la pantalla se conecte a WiFi, sube el trabajo directamente a tu cuenta. Sin exportar archivos."
+    }
+  ],
+  "banner": {
+    "text": "¿Tenés equipos Apertio? Activá tu acceso gratis.",
+    "cta": { "label": "Acceder", "href": "https://apertio.harviagro.digital" }
+  }
+}
