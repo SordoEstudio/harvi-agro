@@ -11,6 +11,10 @@
     "El primer producto de Harvi Agro está pensado para contratistas y agrónomos que necesitan analizar sus trabajos sin depender de software de escritorio.",
     "Subís el archivo de la pantalla, la plataforma lo procesa y en minutos tenés un análisis completo. Sin instalaciones, sin configuración, desde cualquier dispositivo."
   ],
+  "image": {
+    "src": "/images/producto-plataforma.png",
+    "alt": "Plataforma GIS de Harvi Agro en escritorio, tablet y celular"
+  },
   "features": [
     {
       "icon": "map",

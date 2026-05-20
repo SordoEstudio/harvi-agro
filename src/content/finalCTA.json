@@ -9,6 +9,10 @@
     ]
   },
   "subtitle": "Si hay algo en tu operación que se hace a mano, que se pierde, que no se mide o que lleva más tiempo del que debería, contanos. Desarrollamos la herramienta que necesitás.",
+  "image": {
+    "src": "/images/contacto-mascota.png",
+    "alt": "Mascota Harvi Agro en el campo con datos agrícolas"
+  },
   "form": {
     "endpoint": "https://micms.website/api/public/v1/forms/contacto/submit",
     "submitLabel": "Enviar mensaje",
