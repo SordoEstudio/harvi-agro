@@ -1,0 +1,17 @@
+---
+interface Props {
+  ringClass?: string;
+}
+
+const { ringClass = 'ring-white' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'absolute left-6 -top-5 z-10 h-10 w-10 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center text-lg font-extrabold shadow-md ring-4',
+    ringClass,
+  ]}
+  aria-hidden="true"
+>
+  <slot />
+</div>

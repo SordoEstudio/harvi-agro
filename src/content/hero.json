@@ -1,0 +1,31 @@
+{
+  "eyebrow": "Tecnología para el campo",
+  "title": {
+    "lines": ["Herramientas digitales para"],
+    "highlight": "el agro."
+  },
+  "subtitle": "Harvi Agro desarrolla productos digitales para contratistas, agrónomos y productores. Simples de usar, conectados con el día a día del trabajo agrícola.",
+  "ctas": {
+    "primary": { "label": "Conocé nuestro producto", "href": "#producto" },
+    "secondary": {
+      "label": "Hablemos",
+      "whatsappPhone": "5493492635571",
+      "whatsappText": "Hola Harvi Agro, quiero saber más."
+    }
+  },
+  "badges": [
+    "Pensado para el agro",
+    "Soporte cercano",
+    "Evolución continua"
+  ],
+  "image": {
+    "src": "/images/hero.png",
+    "alt": "Plataforma GIS de Harvi Agro analizando un trabajo de campo"
+  },
+  "imageBadgeIcons": [
+    { "icon": "sprout", "label": "Agro y cultivos" },
+    { "icon": "map", "label": "Mapas de campo" },
+    { "icon": "chart", "label": "Análisis de datos" }
+  ],
+  "scrollTarget": "#nosotros"
+}

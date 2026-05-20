@@ -1,9 +1,11 @@
 ---
-const waText = encodeURIComponent('Hola Harvi Agro, quiero saber más sobre la plataforma.');
-const waHref = `https://wa.me/5493492635571?text=${waText}`;
+import data from '../content/finalCTA.json';
+import Icon from '../components/Icon.astro';
+
+const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(data.whatsapp.text)}`;
 ---
 
-<section id="empezar" class="scroll-mt-[72px] py-20 md:py-28 bg-[#f7f7f7] relative overflow-hidden">
+<section id={data.id} class="scroll-mt-[72px] py-20 md:py-28 bg-[#f7f7f7] relative overflow-hidden">
   <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute -top-16 left-1/3 w-[420px] h-[420px] rounded-full blur-3xl opacity-30 animate-float-slow"
          style="background: var(--harvi-sphere-lime-soft);"></div>
@@ -11,38 +13,187 @@ const waHref = `https://wa.me/5493492635571?text=${waText}`;
          style="background: var(--harvi-sphere-celeste-soft);"></div>
   </div>
 
-  <div class="relative mx-auto max-w-4xl px-4 text-center">
-    <span class="inline-block rounded-full bg-white border border-[#cbdf4a]/60 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#103d20] shadow-sm">
-      Empezar es gratis
-    </span>
-    <h2 class="mt-6 text-4xl md:text-6xl font-extrabold text-balance leading-[1.05] text-[#203143]">
-      Tu próximo trabajo,<br />analizado en minutos.
-    </h2>
-    <p class="mt-6 text-lg md:text-xl leading-relaxed text-balance text-[#203143]/80">
-      Probalo sin tarjeta de crédito. Subí un trabajo y ves los resultados de inmediato.
-      Si tenés dudas, escribinos por WhatsApp.
-    </p>
+  <div class="relative mx-auto max-w-6xl px-4">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+      <div class="lg:sticky lg:top-28">
+        <span class="inline-block rounded-full bg-white border border-[#cbdf4a]/60 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#103d20] shadow-sm">
+          {data.eyebrow}
+        </span>
+        <h2 class="mt-6 text-4xl md:text-5xl font-extrabold text-balance leading-[1.1] text-[#203143]">
+          {data.title.lines.map((line, i) => (
+            <>
+              {line}{i < data.title.lines.length - 1 ? <br /> : null}
+            </>
+          ))}
+        </h2>
+        <p class="mt-6 text-lg md:text-xl leading-relaxed text-balance text-[#203143]/80">
+          {data.subtitle}
+        </p>
 
-    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="https://apertio.harviagro.digital"
-        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener"
+          class="mt-8 inline-flex items-center gap-2 text-[#103d20] font-bold decoration-[#cbdf4a] decoration-2 underline-offset-4 hover:underline"
+        >
+          {data.whatsapp.label}
+          <Icon name="arrow-right" size={18} class="shrink-0" />
+        </a>
+      </div>
+
+      <form
+        id="harvi-contact-form"
+        data-endpoint={data.form.endpoint}
+        class="bg-white rounded-3xl border border-[#cbdf4a] shadow-xl p-6 md:p-10"
+        novalidate
       >
-        Empezar gratis
-        <span aria-hidden="true">→</span>
-      </a>
-      <a
-        href={waHref}
-        target="_blank"
-        rel="noopener"
-        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 ease-out"
-      >
-        Consultarnos por WhatsApp
-      </a>
+        <div class="flex flex-col gap-5">
+          {data.form.fields.map((f) => (
+            <div>
+              <label
+                for={`field-${f.id}`}
+                class="block text-sm font-bold text-[#203143]"
+              >
+                {f.label}
+                {f.required && <span class="text-[#103d20] ml-1" aria-hidden="true">*</span>}
+              </label>
+
+              {f.type === 'textarea' && (
+                <textarea
+                  id={`field-${f.id}`}
+                  name={f.id}
+                  rows={f.rows ?? 4}
+                  required={f.required}
+                  placeholder={f.placeholder}
+                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] placeholder:text-[#203143]/50 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                ></textarea>
+              )}
+
+              {f.type === 'select' && (
+                <select
+                  id={`field-${f.id}`}
+                  name={f.id}
+                  required={f.required}
+                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                >
+                  <option value="">{f.placeholder}</option>
+                  {f.options?.map((opt) => (
+                    <option value={opt}>{opt}</option>
+                  ))}
+                </select>
+              )}
+
+              {f.type !== 'textarea' && f.type !== 'select' && (
+                <input
+                  id={`field-${f.id}`}
+                  name={f.id}
+                  type={f.type}
+                  required={f.required}
+                  placeholder={f.placeholder}
+                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] placeholder:text-[#203143]/50 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        <input
+          type="text"
+          name="_hp"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"
+        />
+
+        <div
+          data-form-feedback
+          class="mt-5 hidden rounded-xl px-4 py-3 text-sm font-medium"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <button
+            type="submit"
+            data-submit
+            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          >
+            <span data-submit-label>{data.form.submitLabel}</span>
+            <Icon name="arrow-right" size={18} class="shrink-0" />
+          </button>
+        </div>
+      </form>
     </div>
-
-    <p class="mt-6 text-sm font-medium text-[#203143]/70">
-      Sin instalación · Funciona en el celular · Soporte en español
-    </p>
   </div>
 </section>
+
+<script type="application/json" id="harvi-form-messages" set:html={JSON.stringify(data.form.messages)} />
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById('harvi-contact-form');
+    if (!form) return;
+
+    const endpoint = form.dataset.endpoint;
+    const feedback = form.querySelector('[data-form-feedback]');
+    const submit = form.querySelector('[data-submit]');
+    const submitLabel = form.querySelector('[data-submit-label]');
+    const originalLabel = submitLabel.textContent;
+
+    const msgEl = document.getElementById('harvi-form-messages');
+    const messages = msgEl ? JSON.parse(msgEl.textContent) : {};
+
+    const setFeedback = (text, kind) => {
+      feedback.textContent = text;
+      feedback.className = 'mt-5 rounded-xl px-4 py-3 text-sm font-medium ' + (
+        kind === 'success' ? 'bg-[#cbdf4a]/30 text-[#103d20] border border-[#cbdf4a]' :
+        kind === 'error' ? 'bg-red-50 text-red-800 border border-red-200' :
+        'hidden'
+      );
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setFeedback('', null);
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
+      payload.locale = document.documentElement.lang || 'es';
+
+      submit.disabled = true;
+      submitLabel.textContent = 'Enviando...';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+
+        if (res.ok && json.success) {
+          setFeedback(json?.data?.message || messages.success, 'success');
+          form.reset();
+        } else if (res.status === 422) {
+          const detail = Array.isArray(json?.details) ? json.details.join(' · ') : messages.validation;
+          setFeedback(detail, 'error');
+        } else if (res.status === 429) {
+          setFeedback(messages.rateLimit, 'error');
+        } else {
+          setFeedback(messages.error, 'error');
+        }
+      } catch {
+        setFeedback(messages.error, 'error');
+      } finally {
+        submit.disabled = false;
+        submitLabel.textContent = originalLabel;
+      }
+    });
+  })();
+</script>

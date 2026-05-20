@@ -1,0 +1,52 @@
+{
+  "id": "producto",
+  "eyebrow": "Nuestro primer producto",
+  "title": {
+    "lines": [
+      "Plataforma GIS de análisis",
+      "de trabajos de campo."
+    ]
+  },
+  "paragraphs": [
+    "El primer producto de Harvi Agro está pensado para contratistas y agrónomos que necesitan analizar sus trabajos sin depender de software de escritorio.",
+    "Subís el archivo de la pantalla, la plataforma lo procesa y en minutos tenés un análisis completo. Sin instalaciones, sin configuración, desde cualquier dispositivo."
+  ],
+  "features": [
+    {
+      "icon": "map",
+      "title": "Mapa del trabajo",
+      "desc": "Visualizá cada pasada sobre imagen satelital. Coloreado automático por velocidad, dosis aplicada o desvío de prescripción.",
+      "plan": "Incluido (free)"
+    },
+    {
+      "icon": "layers",
+      "title": "Detección de solapamientos",
+      "desc": "Calcula automáticamente las zonas de doble aplicación: área en hectáreas y kilos estimados de producto gastado de más.",
+      "plan": "Incluido (free)"
+    },
+    {
+      "icon": "compare",
+      "title": "Prescripción vs Realidad",
+      "desc": "Compará lo que indicó el agrónomo con lo que ejecutó la máquina. Zona por zona, con porcentaje de cumplimiento.",
+      "plan": "Incluido (free)"
+    },
+    {
+      "icon": "chart",
+      "title": "Estadísticas completas",
+      "desc": "Velocidad mínima, promedio y máxima. Dosis real vs recomendada. Histogramas de distribución. Todo en una pantalla.",
+      "plan": "Incluido (free)"
+    },
+    {
+      "icon": "pdf",
+      "title": "Informe PDF técnico",
+      "desc": "Generá un reporte listo para entregar al productor: mapas, estadísticas y resumen ejecutivo. Con logo de tu empresa.",
+      "plan": "Plan Pro"
+    },
+    {
+      "icon": "history",
+      "title": "Historial de campaña",
+      "desc": "Guardá todos los trabajos de la temporada y comparalos. Detectá patrones, equipos con desvíos y zonas problemáticas.",
+      "plan": "Plan Pro"
+    }
+  ]
+}

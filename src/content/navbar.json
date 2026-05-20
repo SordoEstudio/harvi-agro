@@ -1,0 +1,17 @@
+{
+  "logo": {
+    "src": "/brand/harvi.png",
+    "alt": "Harvi Agro",
+    "suffix": "agro"
+  },
+  "links": [
+    { "href": "#producto", "label": "Productos" },
+    { "href": "#para-quien", "label": "Para quién" },
+    { "href": "#apertio", "label": "Apertio" }
+  ],
+  "contact": {
+    "label": "Contacto",
+    "whatsappPhone": "5493492635571",
+    "whatsappText": "Hola Harvi Agro, quiero hablar con ustedes."
+  }
+}

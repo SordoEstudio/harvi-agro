@@ -1,48 +1,31 @@
 ---
-const items = [
-  {
-    title: 'Solapamientos no detectados',
-    body: 'Pasadas que se pisan implican doble insumo gastado y sin rendimiento extra.',
-  },
-  {
-    title: 'Sin evidencia del trabajo realizado',
-    body: 'El contratista no puede demostrarle al productor que cumplió con la prescripción.',
-  },
-  {
-    title: 'Desvíos de dosis invisibles',
-    body: 'Zonas con subdosis o sobredosis que afectan el resultado del cultivo sin que nadie lo sepa.',
-  },
-];
-
-const stats = [
-  { label: 'Superficie analizada', value: '224 ha' },
-  { label: 'Área solapada detectada', value: '7,06 ha' },
-  { label: 'Producto en solapamiento', value: '769 kg' },
-  { label: 'Porcentaje del área total', value: '3,1%' },
-];
+import data from '../content/problem.json';
+import CardIcon from '../components/CardIcon.astro';
 ---
 
-<section id="problema" class="scroll-mt-[72px] py-20 md:py-28 bg-white">
+<section id={data.id} class="scroll-mt-[72px] py-20 md:py-28 bg-white">
   <div class="mx-auto max-w-6xl px-4">
     <span class="text-sm font-bold uppercase tracking-wider text-[#103d20]">
-      El problema real
+      {data.eyebrow}
     </span>
     <h2 class="mt-3 text-4xl md:text-5xl font-bold text-balance text-[#203143]">
-      Los errores de aplicación<br />cuestan caro y se detectan tarde.
+      {data.title.lines.map((line, i) => (
+        <>
+          {line}{i < data.title.lines.length - 1 ? <br /> : null}
+        </>
+      ))}
     </h2>
     <p class="mt-6 max-w-3xl text-lg leading-relaxed text-balance text-[#203143]/80">
-      Cuando terminás un trabajo, el archivo queda en la pantalla. Nadie lo analiza.
-      Nadie sabe si se solapó, si la dosis varió, si hubo zonas sin cubrir.
-      Hasta que el productor se queja o se cuentan los kilos sobrantes.
+      {data.intro}
     </p>
 
-    <ul class="mt-12 grid md:grid-cols-3 gap-6">
-      {items.map((it) => (
-        <li class="group rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-6 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out">
-          <div class="h-10 w-10 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center font-extrabold shadow-md ring-4 ring-white">
-            !
-          </div>
-          <h3 class="mt-4 text-lg font-bold text-[#203143]">{it.title}</h3>
+    <ul class="mt-12 grid md:grid-cols-3 gap-6 md:gap-8 pt-5">
+      {data.items.map((it) => (
+        <li class="relative group rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-6 pt-10 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out">
+          <CardIcon>
+            <span class="text-lg font-extrabold leading-none">!</span>
+          </CardIcon>
+          <h3 class="text-lg font-bold text-[#203143]">{it.title}</h3>
           <p class="mt-2 text-[#203143]/80 leading-relaxed">{it.body}</p>
         </li>
       ))}
@@ -51,20 +34,20 @@ const stats = [
     <div class="mt-14 grid lg:grid-cols-[1.1fr_1fr] gap-8 items-stretch">
       <figure class="rounded-2xl bg-[#103d20] p-8 md:p-10 text-[#c5daf3] shadow-md flex flex-col justify-between">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="#cbdf4a" aria-hidden="true">
-          <path d="M9.5 6c-3 0-5.5 2.4-5.5 5.4 0 3 2.5 5.4 5.5 5.4h.5v1.2c-.5 1.6-1.8 2.6-3 3 .8.4 1.7.6 2.7.6 3.3 0 6.3-3 6.3-6.6V11.4C16 8.4 13.5 6 10.5 6h-1zm10 0c-3 0-5.5 2.4-5.5 5.4 0 3 2.5 5.4 5.5 5.4h.5v1.2c-.5 1.6-1.8 2.6-3 3 .8.4 1.7.6 2.7.6 3.3 0 6.3-3 6.3-6.6V11.4C26 8.4 23.5 6 20.5 6h-1z" transform="translate(-2 0)"/>
+          <path d="M9.5 6c-3 0-5.5 2.4-5.5 5.4 0 3 2.5 5.4 5.5 5.4h.5v1.2c-.5 1.6-1.8 2.6-3 3 .8.4 1.7.6 2.7.6 3.3 0 6.3-3 6.3-6.6V11.4C16 8.4 13.5 6 10.5 6h-1zm10 0c-3 0-5.5 2.4-5.5 5.4 0 3 2.5 5.4 5.5 5.4h.5v1.2c-.5 1.6-1.8 2.6-3 3 .8.4 1.7.6 2.7.6 3.3 0 6.3-3 6.3-6.6V11.4C26 8.4 23.5 6 20.5 6h-1z" transform="translate(-2 0)" />
         </svg>
         <blockquote class="mt-4 text-2xl md:text-3xl font-bold leading-snug text-balance text-white">
-          Con 769 kg de producto en solapamientos en un solo trabajo, el análisis se paga solo.
+          {data.quote.text}
         </blockquote>
         <figcaption class="mt-6 text-sm text-[#c5daf3]/80">
-          — Trabajo real analizado con Harvi Agro · Santa Fe, abril 2026
+          {data.quote.caption}
         </figcaption>
       </figure>
 
       <div class="rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-8 md:p-10 shadow-md">
-        <p class="text-sm font-bold uppercase tracking-wider text-[#103d20]">Caso real</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-[#103d20]">{data.stats.label}</p>
         <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-6">
-          {stats.map((s) => (
+          {data.stats.items.map((s) => (
             <div>
               <dt class="text-xs font-semibold text-[#203143]/70 uppercase tracking-wide">{s.label}</dt>
               <dd class="mt-1 text-2xl md:text-3xl font-extrabold text-[#203143]">{s.value}</dd>

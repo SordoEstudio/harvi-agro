@@ -1,0 +1,38 @@
+{
+  "id": "problema",
+  "eyebrow": "El problema real",
+  "title": {
+    "lines": [
+      "Los errores de aplicación",
+      "cuestan caro y se detectan tarde."
+    ]
+  },
+  "intro": "Cuando terminás un trabajo, el archivo queda en la pantalla. Nadie lo analiza. Nadie sabe si se solapó, si la dosis varió, si hubo zonas sin cubrir. Hasta que el productor se queja o se cuentan los kilos sobrantes.",
+  "items": [
+    {
+      "title": "Solapamientos no detectados",
+      "body": "Pasadas que se pisan implican doble insumo gastado y sin rendimiento extra."
+    },
+    {
+      "title": "Sin evidencia del trabajo realizado",
+      "body": "El contratista no puede demostrarle al productor que cumplió con la prescripción."
+    },
+    {
+      "title": "Desvíos de dosis invisibles",
+      "body": "Zonas con subdosis o sobredosis que afectan el resultado del cultivo sin que nadie lo sepa."
+    }
+  ],
+  "quote": {
+    "text": "Con 769 kg de producto en solapamientos en un solo trabajo, el análisis se paga solo.",
+    "caption": "— Trabajo real analizado con Harvi Agro · Santa Fe, abril 2026"
+  },
+  "stats": {
+    "label": "Caso real",
+    "items": [
+      { "label": "Superficie analizada", "value": "224 ha" },
+      { "label": "Área solapada detectada", "value": "7,06 ha" },
+      { "label": "Producto en solapamiento", "value": "769 kg" },
+      { "label": "Porcentaje del área total", "value": "3,1%" }
+    ]
+  }
+}

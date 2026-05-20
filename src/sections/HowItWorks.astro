@@ -1,43 +1,21 @@
 ---
-const steps = [
-  {
-    n: '01',
-    title: 'Subís el archivo',
-    body: 'Exportás el trabajo desde la pantalla de la máquina (KML, Shapefile o GeoJSON) y lo subís a la plataforma.',
-  },
-  {
-    n: '02',
-    title: 'Se procesa automáticamente',
-    body: 'La plataforma detecta los campos (dosis, velocidad, prescripción) y calcula todos los análisis en segundo plano.',
-  },
-  {
-    n: '03',
-    title: 'Analizás los resultados',
-    body: 'Ves el mapa, las estadísticas, los solapamientos y el cumplimiento de la prescripción en una sola pantalla.',
-  },
-  {
-    n: '04',
-    title: 'Generás el informe',
-    body: 'Exportás el PDF técnico y se lo mandás al productor o lo guardás en tu historial de campaña.',
-  },
-];
+import data from '../content/howItWorks.json';
 ---
 
-<section id="como-funciona" class="scroll-mt-[72px] py-20 md:py-28 bg-white">
+<section id={data.id} class="scroll-mt-[72px] py-20 md:py-28 bg-white">
   <div class="mx-auto max-w-6xl px-4">
     <div class="max-w-3xl">
-      <span class="text-sm font-bold uppercase tracking-wider text-[#103d20]">El proceso</span>
+      <span class="text-sm font-bold uppercase tracking-wider text-[#103d20]">{data.eyebrow}</span>
       <h2 class="mt-3 text-4xl md:text-5xl font-bold text-balance text-[#203143]">
-        Cuatro pasos, cinco minutos.
+        {data.title}
       </h2>
       <p class="mt-6 text-lg leading-relaxed text-balance text-[#203143]/80">
-        No hace falta saber de SIG ni tener un software especial.
-        Si podés subir un archivo, podés analizar un trabajo.
+        {data.subtitle}
       </p>
     </div>
 
     <ol class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {steps.map((s) => (
+      {data.steps.map((s) => (
         <li class="relative rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-6 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out">
           <span class="text-5xl font-extrabold text-[#cbdf4a] leading-none">{s.n}</span>
           <h3 class="mt-4 text-lg font-bold text-[#203143]">{s.title}</h3>

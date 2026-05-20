@@ -1,0 +1,20 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, class: className = '', loading = 'lazy' } = Astro.props;
+---
+
+<div class="glass-light rounded-3xl p-3 shadow-xl">
+  <img
+    src={src}
+    alt={alt}
+    class:list={['w-full h-auto rounded-2xl', className]}
+    loading={loading}
+    decoding="async"
+  />
+</div>
