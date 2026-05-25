@@ -4,6 +4,9 @@ import CardIcon from '../components/CardIcon.astro';
 import VisualFrame from '../components/VisualFrame.astro';
 import Icon from '../components/Icon.astro';
 import type { IconName } from '../components/LucideIcon';
+
+const inlineLinkClass =
+  'font-semibold text-harvi-green-dark underline decoration-harvi-green-lime decoration-2 underline-offset-4 hover:opacity-90';
 ---
 
 <section id={data.id} class="scroll-mt-[72px] py-20 md:py-28 bg-white">
@@ -21,8 +24,37 @@ import type { IconName } from '../components/LucideIcon';
           ))}
         </h2>
         <div class="mt-6 space-y-5 text-lg leading-relaxed text-balance text-[#203143]/85">
-          {data.paragraphs.map((p) => <p>{p}</p>)}
+          {data.paragraphs.map((p) => (
+            <p>
+              {typeof p === 'string'
+                ? p
+                : p.segments.map((segment) =>
+                    typeof segment === 'string' ? (
+                      segment
+                    ) : (
+                      <a
+                        href={segment.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={inlineLinkClass}
+                      >
+                        {segment.text}
+                      </a>
+                    )
+                  )}
+            </p>
+          ))}
         </div>
+
+        <a
+          href={data.cta.href}
+          target="_blank"
+          rel="noopener"
+          class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f7f7f7] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 ease-out"
+        >
+          {data.cta.label}
+          <Icon name="arrow-right" size={18} class="shrink-0" />
+        </a>
       </div>
 
       <figure class="relative mx-auto lg:mx-0 shrink-0 w-full max-w-[280px] md:max-w-[360px]">

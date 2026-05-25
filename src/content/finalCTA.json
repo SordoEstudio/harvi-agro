@@ -4,8 +4,7 @@
   "title": {
     "lines": [
       "¿Tenés un problema",
-      "en el campo que la",
-      "tecnología puede resolver?"
+      "que la tecnología puede resolver?"
     ]
   },
   "subtitle": "Si hay algo en tu operación que se hace a mano, que se pierde, que no se mide o que lleva más tiempo del que debería, contanos. Desarrollamos la herramienta que necesitás.",
@@ -15,7 +14,8 @@
   },
   "form": {
     "endpoint": "https://micms.website/api/public/v1/forms/contacto/submit",
-    "submitLabel": "Enviar mensaje",
+    "icon": "message-circle",
+    "submitLabel": "Enviar",
     "fields": [
       {
         "id": "nombre",
@@ -26,10 +26,10 @@
         "width": "half"
       },
       {
-        "id": "empresa",
+        "id": "compañia",
         "type": "text",
-        "label": "Empresa / Campo",
-        "placeholder": "Nombre de tu empresa o campo",
+        "label": "Empresa",
+        "placeholder": "Nombre de tu empresa",
         "required": false,
         "width": "half"
       },
@@ -38,11 +38,11 @@
         "type": "email",
         "label": "Email",
         "placeholder": "tu@email.com",
-        "required": true,
+        "required": false,
         "width": "half"
       },
       {
-        "id": "telefono",
+        "id": "teléfono",
         "type": "tel",
         "label": "Teléfono",
         "placeholder": "+54 9 ...",
@@ -52,11 +52,11 @@
       {
         "id": "mensaje",
         "type": "textarea",
-        "label": "Contanos tu situación",
+        "label": "¿Cómo podemos ayudarte?",
         "placeholder": "¿Qué hacés hoy? ¿Qué problema querés resolver? No hace falta que sea técnico, contanos con tus palabras.",
         "required": true,
         "width": "full",
-        "rows": 5
+        "rows": 2
       }
     ],
     "messages": {
@@ -67,7 +67,7 @@
     }
   },
   "whatsapp": {
-    "label": "O escribinos directo por WhatsApp",
+    "label": "Hablemos por WhatsApp",
     "phone": "5493492635571",
     "text": "Hola Harvi Agro, tengo una consulta sobre un proyecto."
   }

@@ -11,6 +11,8 @@ import {
   Handshake,
   History,
   Layers,
+  Lightbulb,
+  Mail,
   Map,
   MessageCircle,
   Puzzle,
@@ -18,6 +20,7 @@ import {
   Sprout,
   Target,
   Tractor,
+  Upload,
 } from 'lucide-react';
 import type { FC } from 'react';
 
@@ -39,7 +42,10 @@ export const iconMap = {
   'chevron-down': ChevronDown,
   'arrow-right': ArrowRight,
   'message-circle': MessageCircle,
+  mail: Mail,
+  lightbulb: Lightbulb,
   quote: Quote,
+  upload: Upload,
 } as const;
 
 export type IconName = keyof typeof iconMap;

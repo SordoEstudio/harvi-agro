@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# AI crawlers — bloqueamos training, dejamos respuesta inmediata
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://harviagro.digital/sitemap-index.xml
+Host: https://harviagro.digital

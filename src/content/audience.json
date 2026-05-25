@@ -1,12 +1,12 @@
 {
   "id": "para-quien",
   "eyebrow": "Usuarios",
-  "title": "¿Para quién es Harvi Agro?",
+  "title": "¿Para quién es?",
   "subtitle": "Tres perfiles distintos, una sola herramienta que se adapta a lo que cada uno necesita ver.",
   "roles": [
     {
       "icon": "tractor",
-      "title": "Contratista de aplicación",
+      "title": "Contratista",
       "desc": "Prestás servicios con tus máquinas y necesitás demostrar que trabajaste bien. Harvi Agro te da el respaldo técnico para cada trabajo.",
       "bullets": [
         "Mostrá el reporte al productor antes de salir del campo",
@@ -16,7 +16,7 @@
     },
     {
       "icon": "clipboard-list",
-      "title": "Agrónomo asesor",
+      "title": "Asesor",
       "desc": "Hacés la prescripción y después necesitás verificar que se cumplió. Sin herramientas, ese control queda en el olvido.",
       "bullets": [
         "Compará prescripción vs ejecución zona por zona",

@@ -1,36 +1,40 @@
 {
   "id": "producto",
-  "eyebrow": "Nuestro primer producto",
+  "eyebrow": "la solución",
   "title": {
     "lines": [
-      "Plataforma GIS de análisis",
-      "de trabajos de campo."
+      "Visualizá mapas y genera reportes",
+      "en segundos."
     ]
   },
   "paragraphs": [
-    "El primer producto de Harvi Agro está pensado para contratistas y agrónomos que necesitan analizar sus trabajos sin depender de software de escritorio.",
-    "Subís el archivo de la pantalla, la plataforma lo procesa y en minutos tenés un análisis completo. Sin instalaciones, sin configuración, desde cualquier dispositivo."
+    "Mapas: El primer producto de Harvi Agro está pensado para contratistas y agrónomos que necesitan analizar sus trabajos sin depender de software de escritorio.",
+    "Subís el archivo de la pantalla, Mapas lo procesa y en minutos tenés un análisis completo. Sin instalaciones, sin configuración y desde cualquier dispositivo."
   ],
   "image": {
     "src": "/images/producto-plataforma.png",
-    "alt": "Plataforma GIS de Harvi Agro en escritorio, tablet y celular"
+    "alt": "Harvi Agro en escritorio, tablet y celular analizando un trabajo de campo"
+  },
+  "cta": {
+    "label": "Ir a Mapas",
+    "href": "https://mapas.harviagro.digital"
   },
   "features": [
     {
       "icon": "map",
       "title": "Mapa del trabajo",
-      "desc": "Visualizá cada pasada sobre imagen satelital. Coloreado automático por velocidad, dosis aplicada o desvío de prescripción.",
+      "desc": "Visualizá cada pasada sobre imagen satelital. Coloreado automático por velocidad, dosis aplicada, prescripción o desvío.",
       "plan": "Incluido (free)"
     },
     {
       "icon": "layers",
       "title": "Detección de solapamientos",
       "desc": "Calcula automáticamente las zonas de doble aplicación: área en hectáreas y kilos estimados de producto gastado de más.",
-      "plan": "Incluido (free)"
+      "plan": ""
     },
     {
       "icon": "compare",
-      "title": "Prescripción vs Realidad",
+      "title": "Recomendación vs Aplicación",
       "desc": "Compará lo que indicó el agrónomo con lo que ejecutó la máquina. Zona por zona, con porcentaje de cumplimiento.",
       "plan": "Incluido (free)"
     },
@@ -43,14 +47,14 @@
     {
       "icon": "pdf",
       "title": "Informe PDF técnico",
-      "desc": "Generá un reporte listo para entregar al productor: mapas, estadísticas y resumen ejecutivo. Con logo de tu empresa.",
-      "plan": "Plan Pro"
+      "desc": "Generá un reporte listo para entregar al productor: mapas, estadísticas y resumen ejecutivo.",
+      "plan": "Incluido (free)"
     },
     {
       "icon": "history",
       "title": "Historial de campaña",
       "desc": "Guardá todos los trabajos de la temporada y comparalos. Detectá patrones, equipos con desvíos y zonas problemáticas.",
-      "plan": "Plan Pro"
+      "plan": "Incluido (free)"
     }
   ]
 }

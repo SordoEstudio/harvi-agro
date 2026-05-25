@@ -1,44 +1,162 @@
 ---
 import '../styles/global.css';
+import seo from '../content/seo.json';
 
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
+  path?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article' | 'product';
+  keywords?: string[];
 }
 
 const {
-  title = 'Harvi Agro — Herramientas digitales para el campo',
-  description = 'Analizá tus trabajos de campo: dosis aplicada, solapamientos, velocidad y cumplimiento de prescripción. Sin software de escritorio. Compatible con Apertio, Topcon, AgLeader y más.',
+  title = seo.default.title,
+  description = seo.default.description,
+  image,
+  imageAlt,
+  path = '',
+  noindex = false,
+  type = 'website',
+  keywords = seo.default.keywords,
 } = Astro.props;
 
-const canonical = 'https://harviagro.digital';
+const siteUrl = seo.site.url;
+const canonical = new URL(path, siteUrl).toString();
+
+const ogImage = image ?? seo.default.image.src;
+const ogImageAbsolute = new URL(ogImage, siteUrl).toString();
+const ogImageAlt = imageAlt ?? seo.default.image.alt;
+
+const robotsValue = noindex ? 'noindex, nofollow' : seo.default.robots;
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: seo.organization.name,
+  legalName: seo.organization.legalName,
+  alternateName: seo.organization.alternateName,
+  url: seo.organization.url,
+  logo: seo.organization.logo,
+  foundingDate: seo.organization.foundingDate,
+  parentOrganization: {
+    '@type': 'Organization',
+    name: seo.organization.parentOrganization.name,
+    url: seo.organization.parentOrganization.url,
+  },
+  founder: {
+    '@type': 'Organization',
+    name: seo.organization.founder.name,
+    url: seo.organization.founder.url,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: seo.organization.address.addressLocality,
+    addressRegion: seo.organization.address.addressRegion,
+    addressCountry: seo.organization.address.addressCountry,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: seo.organization.contactPoint.telephone,
+    contactType: seo.organization.contactPoint.contactType,
+    areaServed: seo.organization.contactPoint.areaServed,
+    availableLanguage: seo.organization.contactPoint.availableLanguage,
+  },
+  sameAs: seo.organization.sameAs,
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: seo.site.name,
+  url: seo.site.url,
+  inLanguage: seo.site.lang,
+  publisher: { '@type': 'Organization', name: seo.organization.name, url: seo.organization.url },
+};
+
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: seo.product.name,
+  description: seo.product.description,
+  applicationCategory: seo.product.applicationCategory,
+  operatingSystem: seo.product.operatingSystem,
+  url: seo.product.url,
+  publisher: { '@type': 'Organization', name: seo.organization.name, url: seo.organization.url },
+  offers: seo.product.offers.map((o) => ({
+    '@type': 'Offer',
+    name: o.name,
+    ...(o.price !== undefined ? { price: o.price } : {}),
+    priceCurrency: o.priceCurrency,
+  })),
+};
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang={seo.site.lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="robots" content={robotsValue} />
+    <meta name="googlebot" content={robotsValue} />
+    <meta name="author" content={seo.organization.name} />
+    <meta name="theme-color" content={seo.site.themeColor} />
+    <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=yes" />
+
     <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:site_name" content={seo.site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={seo.site.locale} />
+    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:image:secure_url" content={ogImageAbsolute} />
+    <meta property="og:image:type" content={seo.default.image.type} />
+    <meta property="og:image:width" content={String(seo.default.image.width)} />
+    <meta property="og:image:height" content={String(seo.default.image.height)} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <meta name="twitter:card" content={seo.default.twitter.card} />
+    <meta name="twitter:site" content={seo.default.twitter.site} />
+    <meta name="twitter:creator" content={seo.default.twitter.creator} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <link rel="alternate" hreflang="es-AR" href={siteUrl} />
+    <link rel="alternate" hreflang="es" href={siteUrl} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://micms.website" crossorigin />
+    <link rel="dns-prefetch" href="https://wa.me" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap"
     />
 
-    <meta property="og:title" content="Harvi Agro — Analizá cada trabajo de campo" />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="/og-harviagro.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productLd)} />
   </head>
   <body class="min-h-screen antialiased text-[#203143]">
     <slot />

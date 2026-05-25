@@ -1,20 +1,15 @@
 {
-  "brand": "Harvi Agro",
-  "logo": {
-    "src": "/brand/harvi.png",
-    "alt": "Harvi",
-    "suffix": "Agro"
+  "copyright": {
+    "brand": "Harvi Agro",
+    "developedBy": {
+      "label": "Harvi Digital",
+      "href": "https://harvi.digital"
+    },
+    "rights": "Todos los derechos reservados."
   },
-  "description": "Harvi Agro es una vertical de <strong>Harvi Digital</strong> · Desarrollado por <strong>Harvestech</strong>",
-  "location": "San Vicente, Santa Fe — Argentina.",
-  "linksTitle": "Ecosistema",
-  "links": [
-    { "href": "https://harvi.digital", "label": "Harvi Digital", "external": true },
-    { "href": "https://harvestech.dev", "label": "Harvestech", "external": true },
-    { "href": "https://apertio.com.ar", "label": "Apertio", "external": true },
-    { "href": "/terminos", "label": "Términos", "external": false },
-    { "href": "/privacidad", "label": "Privacidad", "external": false }
-  ],
-  "legal": "Todos los derechos reservados",
-  "domain": "harviagro.digital"
+  "instagram": {
+    "url": "https://www.instagram.com/harvidigital/",
+    "handle": "@harvidigital",
+    "follow_label": "Seguinos"
+  }
 }

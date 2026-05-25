@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../sections/Hero.astro';
 import About from '../sections/About.astro';
-import Problem from '../sections/Problem.astro';
+{/*import Problem from '../sections/Problem.astro';*/}
 import Platform from '../sections/Platform.astro';
 import Audience from '../sections/Audience.astro';
 import Apertio from '../sections/Apertio.astro';
@@ -13,16 +13,20 @@ import Footer from '../components/Footer.astro';
 import WhatsAppFAB from '../components/WhatsAppFAB.astro';
 ---
 
-<Layout>
+<Layout
+  title="Harvi Agro — Plataforma GIS para análisis de trabajos de campo"
+  description="Detectá solapamientos, dosis y desvíos en tus aplicaciones. Plataforma GIS pensada para contratistas, agrónomos y productores del agro argentino. Sin software de escritorio."
+  path="/"
+>
   <Navbar />
   <main>
     <Hero />
     <About />
-    <Problem />
+{/*    <Problem />*/}
     <Platform />
     <Audience />
-    <Apertio />
     <HowItWorks />
+    <Apertio />
     <FinalCTA />
   </main>
   <Footer />
