@@ -1,6 +1,7 @@
 ---
 import data from '../content/finalCTA.json';
 import Icon from '../components/Icon.astro';
+import type { IconName } from '../components/LucideIcon';
 import VisualFrame from '../components/VisualFrame.astro';
 
 const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(data.whatsapp.text)}`;
@@ -21,7 +22,18 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
           {data.eyebrow}
         </span>
 
-        <figure class="relative mt-4 md:mt-0 mx-auto lg:mx-0 w-full">
+        <h2 class="mt-4 md:mt-0 text-2xl md:text-3xl font-extrabold text-balance leading-snug text-[#203143]">
+          {data.title.lines.map((line, i) => (
+            <>
+              {line}{i < data.title.lines.length - 1 ? <br /> : null}
+            </>
+          ))}
+        </h2>
+        <p class="mt-4 text-base md:text-lg leading-relaxed text-balance text-[#203143]/80">
+          {data.subtitle}
+        </p>
+
+        <figure class="relative mt-6 mx-auto lg:mx-0 w-full">
           <VisualFrame src={data.image.src} alt={data.image.alt} />
           <div
             class="absolute -bottom-4 -right-4 hidden md:flex items-center bg-white rounded-2xl shadow-lg border border-[#cbdf4a] px-4 py-2.5"
@@ -34,17 +46,6 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
           </div>
         </figure>
 
-        <h2 class="mt-6 text-2xl md:text-3xl font-extrabold text-balance leading-snug text-[#203143]">
-          {data.title.lines.map((line, i) => (
-            <>
-              {line}{i < data.title.lines.length - 1 ? <br /> : null}
-            </>
-          ))}
-        </h2>
-        <p class="mt-4 text-base md:text-lg leading-relaxed text-balance text-[#203143]/80">
-          {data.subtitle}
-        </p>
-
         <a
           href={waHref}
           target="_blank"
@@ -56,31 +57,40 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
         </a>
       </div>
 
-      <form
-        id="harvi-contact-form"
-        data-endpoint={data.form.endpoint}
-        class="bg-white rounded-3xl border border-[#cbdf4a] shadow-xl p-6 md:p-10 lg:sticky lg:top-28"
-        novalidate
-      >
+      <div class="relative lg:sticky lg:top-28">
+        <div
+          class="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 z-10 h-14 w-14 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center shadow-md ring-4 ring-white"
+          aria-hidden="true"
+        >
+          <Icon name={data.form.icon as IconName} size={26} strokeWidth={2.25} />
+        </div>
+
+        <form
+          id="harvi-contact-form"
+          data-endpoint={data.form.endpoint}
+          class="bg-white rounded-3xl border border-[#cbdf4a] shadow-xl p-6 md:p-10 pt-12"
+          novalidate
+        >
         <div class="flex flex-col gap-5">
           {data.form.fields.map((f) => (
             <div>
               <label
                 for={`field-${f.id}`}
-                class="block text-sm font-bold text-[#203143]"
+                class="block text-sm font-medium text-[#203143]"
               >
                 {f.label}
-                {f.required && <span class="text-[#103d20] ml-1" aria-hidden="true">*</span>}
+                {f.required && <span class="text-[#103d20] ml-0.5" aria-hidden="true">*</span>}
               </label>
 
               {f.type === 'textarea' && (
                 <textarea
                   id={`field-${f.id}`}
                   name={f.id}
-                  rows={f.rows ?? 4}
+                  rows={f.rows ?? 2}
                   required={f.required}
                   placeholder={f.placeholder}
-                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] placeholder:text-[#203143]/50 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                  data-auto-resize
+                  class="mt-2 w-full resize-none overflow-hidden rounded-2xl border border-[#d4d4d4] bg-white px-4 py-3 text-[#0f1a26] placeholder:text-[#203143]/40 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-transparent transition-[border-color,box-shadow] duration-200"
                 ></textarea>
               )}
 
@@ -89,7 +99,7 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
                   id={`field-${f.id}`}
                   name={f.id}
                   required={f.required}
-                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                  class="mt-2 w-full rounded-2xl border border-[#d4d4d4] bg-white px-4 py-3 text-[#0f1a26] focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-transparent transition-all duration-200"
                 >
                   <option value="">{f.placeholder}</option>
                   {f.options?.map((opt) => (
@@ -105,7 +115,7 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
                   type={f.type}
                   required={f.required}
                   placeholder={f.placeholder}
-                  class="mt-2 w-full rounded-xl border border-[#cbdf4a]/70 bg-[#f7f7f7] px-4 py-3 text-[#203143] placeholder:text-[#203143]/50 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-[#cbdf4a] transition-all duration-200"
+                  class="mt-2 w-full rounded-2xl border border-[#d4d4d4] bg-white px-4 py-3 text-[#0f1a26] placeholder:text-[#203143]/40 focus:outline-none focus:ring-2 focus:ring-[#cbdf4a] focus:border-transparent transition-all duration-200"
                 />
               )}
             </div>
@@ -128,17 +138,15 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
           aria-live="polite"
         ></div>
 
-        <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-          <button
-            type="submit"
-            data-submit
-            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-          >
-            <span data-submit-label>{data.form.submitLabel}</span>
-            <Icon name="arrow-right" size={18} class="shrink-0" />
-          </button>
-        </div>
-      </form>
+        <button
+          type="submit"
+          data-submit
+          class="mt-6 w-full rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+        >
+          <span data-submit-label>{data.form.submitLabel}</span>
+        </button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -158,6 +166,18 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
 
     const msgEl = document.getElementById('harvi-form-messages');
     const messages = msgEl ? JSON.parse(msgEl.textContent) : {};
+
+    const autoResizeTextareas = () => {
+      form.querySelectorAll('textarea[data-auto-resize]').forEach((ta) => {
+        ta.style.height = 'auto';
+        ta.style.height = `${ta.scrollHeight}px`;
+      });
+    };
+
+    autoResizeTextareas();
+    form.querySelectorAll('textarea[data-auto-resize]').forEach((ta) => {
+      ta.addEventListener('input', autoResizeTextareas);
+    });
 
     const setFeedback = (text, kind) => {
       feedback.textContent = text;
@@ -195,6 +215,7 @@ const waHref = `https://wa.me/${data.whatsapp.phone}?text=${encodeURIComponent(d
         if (res.ok && json.success) {
           setFeedback(json?.data?.message || messages.success, 'success');
           form.reset();
+          autoResizeTextareas();
         } else if (res.status === 422) {
           const detail = Array.isArray(json?.details) ? json.details.join(' · ') : messages.validation;
           setFeedback(detail, 'error');

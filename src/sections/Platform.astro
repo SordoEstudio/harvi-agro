@@ -23,6 +23,16 @@ import type { IconName } from '../components/LucideIcon';
             {p}
           </p>
         ))}
+
+        <a
+          href={data.cta.href}
+          target="_blank"
+          rel="noopener"
+          class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] font-bold px-8 py-4 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
+        >
+          {data.cta.label}
+          <Icon name="arrow-right" size={18} class="shrink-0" />
+        </a>
       </div>
 
       <figure class="relative mx-auto lg:mx-0 w-full max-w-[520px] lg:max-w-none">
@@ -36,9 +46,6 @@ import type { IconName } from '../components/LucideIcon';
           <CardIcon>
             <Icon name={f.icon as IconName} />
           </CardIcon>
-          <span class={`absolute right-6 top-6 text-xs font-bold rounded-full px-3 py-1 ${f.plan === 'Plan Pro' ? 'bg-[#203143] text-[#cbdf4a]' : 'bg-[#cbdf4a]/30 text-[#103d20]'}`}>
-            {f.plan}
-          </span>
           <h3 class="text-xl font-bold text-[#203143]">{f.title}</h3>
           <p class="mt-2 text-[#203143]/80 leading-relaxed">{f.desc}</p>
         </li>

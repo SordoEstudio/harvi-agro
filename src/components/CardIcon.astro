@@ -1,14 +1,16 @@
 ---
 interface Props {
   ringClass?: string;
+  position?: 'left' | 'right';
 }
 
-const { ringClass = 'ring-white' } = Astro.props;
+const { ringClass = 'ring-white', position = 'left' } = Astro.props;
 ---
 
 <div
   class:list={[
-    'absolute left-6 -top-5 z-10 h-10 w-10 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center text-lg font-extrabold shadow-md ring-4',
+    'absolute -top-5 z-10 h-10 w-10 rounded-full bg-[#cbdf4a] text-[#203143] flex items-center justify-center text-lg font-extrabold shadow-md ring-4',
+    position === 'right' ? 'right-6' : 'left-6',
     ringClass,
   ]}
   aria-hidden="true"

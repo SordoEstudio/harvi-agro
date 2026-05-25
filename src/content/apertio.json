@@ -4,7 +4,7 @@
     "src": "/brand/apertio.png",
     "alt": "Logo Apertio"
   },
-  "eyebrow": "Integración con hardware",
+  "eyebrow": "Integración con Apertio",
   "title": {
     "lines": [
       "Si usás equipos Apertio,",
@@ -19,19 +19,19 @@
   "benefits": [
     {
       "title": "Archivos compatibles de fábrica",
-      "body": "Los KML y Shapefiles que genera la pantalla Apertio son reconocidos automáticamente. Sin configuración."
+      "body": "Los datos que genera la pantalla Apertio son reconocidos automáticamente por la aplicación."
     },
     {
       "title": "Acceso incluido con tu equipo",
-      "body": "Los clientes de Apertio acceden a la plataforma sin costo adicional durante los primeros meses."
+      "body": "Los clientes de Apertio acceden a la plataforma sin costo."
     },
     {
       "title": "Próximamente: subida automática",
-      "body": "Cuando la pantalla se conecte a WiFi, sube el trabajo directamente a tu cuenta. Sin exportar archivos."
+      "body": "Cuando la pantalla se conecta a WiFi, sube el trbajo directamente a tu cuenta y llega el infortme a tu whatsapp."
     }
   ],
   "banner": {
-    "text": "¿Tenés equipos Apertio? Activá tu acceso gratis.",
+    "text": "¿Tenés equipos Apertio? Accedé a la plataforma.",
     "cta": { "label": "Acceder", "href": "https://apertio.harviagro.digital" }
   }
 }

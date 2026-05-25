@@ -1,7 +1,5 @@
 ---
 import data from '../content/navbar.json';
-
-const waHref = `https://wa.me/${data.contact.whatsappPhone}?text=${encodeURIComponent(data.contact.whatsappText)}`;
 ---
 
 <header class="fixed top-0 inset-x-0 z-40 bg-white shadow-sm">
@@ -17,26 +15,11 @@ const waHref = `https://wa.me/${data.contact.whatsappPhone}?text=${encodeURIComp
       <span class="text-xl font-normal tracking-tight text-[#203143] lowercase">{data.logo.suffix}</span>
     </a>
 
-    <ul class="hidden md:flex items-center gap-8">
-      {data.links.map(({ href, label }) => (
-        <li>
-          <a
-            href={href}
-            class="text-sm font-bold text-[#203143] hover:text-[#cbdf4a] transition-colors duration-300 ease-out"
-          >
-            {label}
-          </a>
-        </li>
-      ))}
-    </ul>
-
     <a
-      href={waHref}
-      target="_blank"
-      rel="noopener"
-      class="text-sm font-bold text-[#203143] hover:text-[#cbdf4a] transition-colors duration-300 ease-out"
+      href={data.cta.href}
+      class="inline-flex items-center justify-center rounded-2xl bg-[#cbdf4a] border border-[#cbdf4a] text-[#203143] text-sm font-bold px-5 py-2.5 md:px-6 md:py-3 shadow-md hover:scale-[1.03] hover:shadow-xl transition-all duration-300 ease-out"
     >
-      {data.contact.label}
+      {data.cta.label}
     </a>
   </nav>
 </header>

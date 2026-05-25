@@ -3,14 +3,28 @@
   "eyebrow": "Quiénes somos",
   "title": {
     "lines": [
-      "Parte del ecosistema de Harvi Digital",
-      "dedicado al sector agrícola."
+      "La vertical del agro",
+      "en Harvi Digital."
     ]
   },
   "paragraphs": [
-    "El campo tiene problemas concretos que la tecnología puede resolver, si esa tecnología está bien pensada. Harvi Agro nace para construir herramientas digitales específicas para el agro: simples de adoptar, útiles desde el primer uso y pensadas junto con quienes trabajan el campo.",
-    "Hoy tenemos un producto: una plataforma de análisis GIS para trabajos de campo. Y ya estamos desarrollando lo que viene."
+    {
+      "segments": [
+        {
+          "type": "link",
+          "text": "Harvi Digital",
+          "href": "https://harvi.digital"
+        },
+        " es un ecosistema de soluciones digitales. Harvi Agro es su parte dedicada al campo: herramientas simples, útiles desde el primer uso y pensadas para el sector."
+      ]
+    },
+    "El campo tiene problemas concretos que la tecnología puede resolver, si está bien pensada para ese contexto.",
+    "Hoy tenemos una plataforma de análisis de mapas para trabajos de campo. Y ya estamos desarrollando lo que viene."
   ],
+  "cta": {
+    "label": "Conocé el ecosistema completo",
+    "href": "https://harvi.digital"
+  },
   "image": {
     "src": "/images/mascota-puzzle.png",
     "alt": "Mascota Harvi Agro"
@@ -23,17 +37,17 @@
     {
       "icon": "check",
       "title": "Simples",
-      "body": "Sin capacitación técnica. Si podés usar el celular, podés usar Harvi Agro."
+      "body": "Sin complicaciones técnicas."
     },
     {
       "icon": "target",
       "title": "Específicas",
-      "body": "No adaptamos software genérico. Construimos para el problema real del campo."
+      "body": "Resolvemos problemas del sector."
     },
     {
       "icon": "handshake",
       "title": "Cercanas",
-      "body": "Soporte en español, por WhatsApp, de personas que entienden el sector."
+      "body": "Soporte y acompañamiento desde el primer uso."
     }
   ]
 }

@@ -1,0 +1,94 @@
+{
+  "site": {
+    "url": "https://harviagro.digital",
+    "name": "Harvi Agro",
+    "shortName": "Harvi Agro",
+    "locale": "es_AR",
+    "lang": "es-AR",
+    "themeColor": "#cbdf4a",
+    "backgroundColor": "#f7f7f7"
+  },
+  "default": {
+    "title": "Harvi Agro — Plataforma GIS para análisis de trabajos de campo",
+    "titleTemplate": "%s · Harvi Agro",
+    "description": "Analizá tus trabajos de campo: dosis aplicada, solapamientos, velocidad y cumplimiento de prescripción. Sin software de escritorio. Compatible con Apertio.",
+    "keywords": [
+      "agricultura de precisión",
+      "GIS agrícola",
+      "análisis de trabajos de campo",
+      "solapamiento de aplicación",
+      "prescripción agronómica",
+      "contratista de aplicación",
+      "agrónomo asesor",
+      "Apertio",
+      "KML Shapefile agro",
+      "agro argentino",
+      "Harvi Agro"
+    ],
+    "image": {
+      "src": "/og-harviagro.png",
+      "alt": "Harvi Agro — Plataforma GIS para análisis de trabajos de campo",
+      "width": 1200,
+      "height": 630,
+      "type": "image/png"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": "@harviagro",
+      "creator": "@harvestech"
+    },
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  },
+  "organization": {
+    "name": "Harvi Agro",
+    "legalName": "Harvi Agro",
+    "alternateName": "Harvi Agro by Harvestech",
+    "url": "https://harviagro.digital",
+    "logo": "https://harviagro.digital/apple-touch-icon.png",
+    "foundingDate": "2025",
+    "parentOrganization": {
+      "name": "Harvi Digital",
+      "url": "https://harvi.digital"
+    },
+    "founder": {
+      "name": "Harvestech",
+      "url": "https://harvestech.dev"
+    },
+    "address": {
+      "streetAddress": "",
+      "addressLocality": "San Vicente",
+      "addressRegion": "Santa Fe",
+      "addressCountry": "AR"
+    },
+    "contactPoint": {
+      "telephone": "+5493492635571",
+      "contactType": "customer service",
+      "areaServed": "AR",
+      "availableLanguage": ["Spanish"]
+    },
+    "sameAs": [
+      "https://harvi.digital",
+      "https://harvestech.dev",
+      "https://apertio.com.ar"
+    ]
+  },
+  "product": {
+    "name": "Plataforma GIS Harvi Agro",
+    "description": "Plataforma web de análisis GIS para trabajos de campo: detección de solapamientos, comparación prescripción vs aplicación, estadísticas de velocidad y dosis, informe PDF técnico.",
+    "category": "Software de agricultura de precisión",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://harviagro.digital/#producto",
+    "offers": [
+      { "name": "Free", "price": "0", "priceCurrency": "ARS" },
+      { "name": "Pro", "priceCurrency": "ARS" }
+    ]
+  },
+  "manifest": {
+    "name": "Harvi Agro",
+    "shortName": "Harvi Agro",
+    "description": "Plataforma GIS para análisis de trabajos de campo",
+    "startUrl": "/",
+    "display": "standalone"
+  }
+}

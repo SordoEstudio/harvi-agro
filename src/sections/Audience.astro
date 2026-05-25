@@ -25,14 +25,6 @@ import type { IconName } from '../components/LucideIcon';
           </CardIcon>
           <h3 class="text-xl font-bold text-[#203143]">{r.title}</h3>
           <p class="mt-2 text-[#203143]/80 leading-relaxed">{r.desc}</p>
-          <ul class="mt-5 space-y-2.5 border-t border-[#cbdf4a]/40 pt-5">
-            {r.bullets.map((b) => (
-              <li class="flex gap-2 text-sm text-[#203143]/85">
-                <Icon name="arrow-right" size={14} class="text-[#103d20] shrink-0 mt-0.5" strokeWidth={2.5} />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
         </li>
       ))}
     </ul>

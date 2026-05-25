@@ -1,50 +1,41 @@
 ---
 import data from '../content/footer.json';
+import { InstagramIcon } from './InstagramIcon';
+
 const year = new Date().getFullYear();
+const { copyright, instagram } = data;
 ---
 
-<footer class="bg-[#103d20] border-t border-[#0a2815] text-[#c5daf3] text-sm">
-  <div class="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr]">
-    <div>
-      <div class="flex items-center gap-3">
-        <img
-          src={data.logo.src}
-          alt={data.logo.alt}
-          class="h-10 w-auto brightness-0 invert"
-          loading="lazy"
-          decoding="async"
-        />
-        <span class="text-2xl font-extrabold text-white">{data.logo.suffix}</span>
+<footer class="border-t border-[#0a2815] bg-[#103d20]">
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="relative flex w-full flex-col gap-6 md:min-h-[4.5rem]">
+      <div class="text-center text-sm leading-relaxed text-[#c5daf3]/90 md:absolute md:left-1/2 md:top-1/2 md:z-0 md:w-full md:max-w-md md:-translate-x-1/2 md:-translate-y-1/2 md:px-4">
+        <p>
+          © {year} {copyright.brand} desarrollado por{' '}
+          <a
+            href={copyright.developedBy.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[#c5daf3] no-underline transition hover:text-white hover:underline hover:underline-offset-2"
+          >
+            {copyright.developedBy.label}
+          </a>
+        </p>
+        <p class="mt-1">{copyright.rights}</p>
       </div>
-      <p class="mt-3 text-[#c5daf3]/85" set:html={data.description}></p>
-      <p class="mt-4 max-w-md text-[#c5daf3]/75">
-        {data.location}
-      </p>
-    </div>
 
-    <nav aria-label="Enlaces de pie de página">
-      <p class="text-xs font-bold uppercase tracking-wider text-[#cbdf4a]">{data.linksTitle}</p>
-      <ul class="mt-4 space-y-2">
-        {data.links.map((l) => (
-          <li>
-            <a
-              href={l.href}
-              target={l.external ? '_blank' : undefined}
-              rel={l.external ? 'noopener' : undefined}
-              class="text-[#c5daf3] hover:text-white hover:decoration-[#cbdf4a] hover:underline decoration-2 underline-offset-4 transition-colors duration-300 ease-out"
-            >
-              {l.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
-
-  <div class="border-t border-[#0a2815]">
-    <div class="mx-auto max-w-6xl px-4 py-5 text-xs text-[#c5daf3]/75 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-      <p>© {year} {data.brand} · {data.legal}</p>
-      <p>{data.domain}</p>
+      <div class="flex justify-center md:absolute md:left-0 md:top-1/2 md:z-10 md:-translate-y-1/2 md:justify-start">
+        <a
+          href={instagram.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex flex-wrap items-center justify-center gap-2 text-[#c5daf3] transition hover:text-white md:justify-start"
+        >
+          <span class="text-sm font-semibold">{instagram.follow_label}</span>
+          <InstagramIcon className="h-6 w-6 shrink-0" />
+          <span class="text-sm font-semibold">{instagram.handle}</span>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

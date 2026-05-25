@@ -1,5 +1,8 @@
 ---
 import data from '../content/howItWorks.json';
+import CardIcon from '../components/CardIcon.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../components/LucideIcon';
 ---
 
 <section id={data.id} class="scroll-mt-[72px] py-20 md:py-28 bg-white">
@@ -14,9 +17,12 @@ import data from '../content/howItWorks.json';
       </p>
     </div>
 
-    <ol class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <ol class="mt-14 grid md:grid-cols-3 gap-6 md:gap-8 pt-5">
       {data.steps.map((s) => (
-        <li class="relative rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-6 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out">
+        <li class="relative rounded-2xl border border-[#cbdf4a] bg-[#f7f7f7] p-6 pt-10 shadow-md hover:scale-[1.02] hover:shadow-xl transition-all duration-300 ease-out">
+          <CardIcon position="right">
+            <Icon name={s.icon as IconName} />
+          </CardIcon>
           <span class="text-5xl font-extrabold text-[#cbdf4a] leading-none">{s.n}</span>
           <h3 class="mt-4 text-lg font-bold text-[#203143]">{s.title}</h3>
           <p class="mt-2 text-[#203143]/80 leading-relaxed">{s.body}</p>
